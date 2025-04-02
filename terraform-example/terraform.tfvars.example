@@ -1,0 +1,22 @@
+# Copy to terraform.tfvars and edit
+project_id      = "my-project-id"
+region          = "us-central1"
+deployment_name = "weekly-apt-upgrade"
+
+# Target specific VMs with labels
+target_labels   = [
+  { "environment" = "production" },
+  { "os-type" = "debian-ubuntu" }
+]
+
+# Schedule settings
+timezone            = "Europe/London"
+schedule_frequency  = "WEEKLY"
+schedule_day_of_week = "SUNDAY"
+schedule_hour       = 2
+schedule_minute     = 0
+
+# Rollout configuration
+rollout_mode         = "ZONE_BY_ZONE"
+concurrent_instances = 5
+duration_seconds     = 7200
